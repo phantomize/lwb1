@@ -5,17 +5,21 @@
 <title>Untitled Document</title>
 <link href="appLayout.css" rel="stylesheet" type="text/css" />
 <script language="javascript" src="saveLoc.js">
+
 </script>
 </head>
 
 <body>
-<form>
-First name: <input type="text" id="firstName" /> <br />
-Last name: <input type="text" id="lastName" /><br />
+
+
+<form name="clientForm" action="" method="get">
+First name: <input type="text" name="firstName" value="" /> <br />
+Last name: <input type="text" name="lastName" value="" /><br />
 Resources: <br />
-<input type="checkbox" id="shelter" value="Shelter"/> Shelter
+<input type="checkbox" name="shelter"/> Shelter
+<input type="checkbox" name="comms" /> Communication
 <br /><br />
-<input type="submit" />
+<input type="button" name="submitMe" value="Submit" onClick="processClient(this.form)" />
 </form>
 </body>
 </html>
