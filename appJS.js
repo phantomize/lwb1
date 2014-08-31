@@ -53,7 +53,7 @@ function formEmail(){
         var body = ""
         for (var i = 0; i < localStorage.length; i++) {
             var currentClient = JSON.parse(localStorage.getItem(i))
-            body += "Client " + i+1 + ":\nName: " + currentClient.firstName + " " + currentClient.lastName +
+            body += "Client " + i + ":\nName: " + currentClient.firstName + " " + currentClient.lastName +
                 "\nDate: " + currentClient.date + "\nLocation: " + currentClient.lat + ", " + currentClient.long +
                 "\nComms: " + currentClient.comms + "\nShelter: " + currentClient.shelter + "\n--------\n"
         }

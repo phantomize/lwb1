@@ -34,7 +34,7 @@
                     <input type="submit" name="submitMe" value="Submit"/>
                 </form>
 
-                <p id="geolocation">Finding geolocation...</p>
+                <p id="geolocation">Finding geolocations...</p>
 
 
             </div>
@@ -52,7 +52,9 @@
 
 <script type="application/javascript">
 
-
+    var lat = 0, long = 0, time = 0
+    document.addEventListener("deviceready", onDeviceReady, false);
+    onDeviceReady()
 
     $('#clientForm').submit(function() {
         var currentClient = JSON.stringify({
@@ -60,12 +62,11 @@
             "lastName" : $('#lastName').val(),
             "shelter" : $('#shelter').is(':checked'),
             "comms" : $('#comms').is(':checked'),
-            "lat" : -34.28566,
-            "long" : 140.59689,
-            "date" : new Date()
+            "lat" : lat,
+            "long" : long,
+            "date" : new Date(time)
         })
-        document.addEventListener("deviceready", onDeviceReady, false);
-        onDeviceReady()
+
         localStorage.setItem(localStorage.length, currentClient)
     })
 
@@ -80,7 +81,7 @@
     //   This method accepts a `Position` object, which contains
     //   the current GPS coordinates
     //
-    var onSuccess = function(position) {
+    function onSuccess(position) {
 //    alert('Latitude: '          + position.coords.latitude          + '\n' +
 //          'Longitude: '         + position.coords.longitude         + '\n' +
 //          'Altitude: '          + position.coords.altitude          + '\n' +
@@ -90,9 +91,11 @@
 //          'Speed: '             + position.coords.speed             + '\n' +
 //          'Timestamp: '         + position.timestamp                + '\n');
 
-        var vars = [position.coords.latitude, position.coords.longitude, position.timestamp]
+        lat = position.coords.latitude
+        long = position.coords.longitude
+        time = position.timestamp
 
-        alert(vars[0] + ", " + vars[1] + ", " + vars[2])
+        alert(lat + ", " + long + ", " + time)
 
         //return vars
     };
