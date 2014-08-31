@@ -64,7 +64,7 @@
             "long" : 140.59689,
             "date" : new Date()
         })
-        document.addEventListener("deviceready", onDeviceReady, false);
+        document.addEventListener("deviceready", gpsHandler.onDeviceReady, false);
         localStorage.setItem(localStorage.length, currentClient)
     })
 
