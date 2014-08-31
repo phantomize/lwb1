@@ -68,40 +68,6 @@
         localStorage.setItem(localStorage.length, currentClient)
     })
 
-</script>
-<script type="application/javascript">
-    console.log("No. clients: " + localStorage.length)
-    for (var i = 0; i < localStorage.length; i++) {
-        //$.each(JSON.parse(localStorage.getItem(i)), function(k, v) {
-        console.log(JSON.parse(localStorage.getItem(i)))
-    }
-
-    //localStorage.clear()
-
-</script>
-</div>
-</div>
-
-<footer>
-    <ul id="tab-bar">
-        <li>
-            <a href="#register">Register Client</a>
-        </li>
-
-        <li>
-            <a href="#map">Map</a>
-        </li>
-
-        <li>
-            <a href="#send" id="sendForm" onclick="formEmail()">Send</a>
-        </li>
-    </ul>
-</footer>
-
-
-
-</body>
-<script language="javascript">
     function onDeviceReady() {
         navigator.geolocation.getCurrentPosition(onSuccess, onError);
     }
@@ -144,5 +110,40 @@
         alert('code: '    + error.code    + '\n' +
                 'message: ' + error.message + '\n');
     }
+</script>
+<script type="application/javascript">
+    console.log("No. clients: " + localStorage.length)
+    for (var i = 0; i < localStorage.length; i++) {
+        //$.each(JSON.parse(localStorage.getItem(i)), function(k, v) {
+        console.log(JSON.parse(localStorage.getItem(i)))
+    }
+
+    //localStorage.clear()
+
+</script>
+</div>
+</div>
+
+<footer>
+    <ul id="tab-bar">
+        <li>
+            <a href="#register">Register Client</a>
+        </li>
+
+        <li>
+            <a href="#map">Map</a>
+        </li>
+
+        <li>
+            <a href="#send" id="sendForm" onclick="formEmail()">Send</a>
+        </li>
+    </ul>
+</footer>
+
+
+
+</body>
+<script language="javascript">
+
 </script>
 </html>
