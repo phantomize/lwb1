@@ -55,14 +55,16 @@
 
 
     $('#clientForm').submit(function() {
+        var gps = document.addEventListener("deviceready", gpsHandler.onDeviceReady, false);
+
         var currentClient = JSON.stringify({
             "firstName" : $('#firstName').val(),
             "lastName" : $('#lastName').val(),
             "shelter" : $('#shelter').is(':checked'),
             "comms" : $('#comms').is(':checked'),
-            "lat" : -34.28566,
-            "long" : 140.59689,
-            "date" : new Date()
+            "lat" : gps.latitude,
+            "long" : gps.longitude,
+            "date" : gps.timestamp
         })
         localStorage.setItem(localStorage.length, currentClient)
     })
