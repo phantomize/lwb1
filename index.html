@@ -64,7 +64,7 @@
             "comms" : $('#comms').is(':checked'),
             "lat" : lat,
             "long" : long,
-            "date" : new Date(time)
+            "date" : new Date(time).toLocaleString('en-GB', { timeZone: 'Australia/Adelaide' })
         })
 
         localStorage.setItem(localStorage.length, currentClient)
