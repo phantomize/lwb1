@@ -10,6 +10,7 @@ $(document).ready(function() {
     $('#tab-bar').find('a').on('click', function(e){
         console.log("some one clicked me");
 
+        //send email code, fuck knows where this goes
         var body = ""
         for (var i = 0; i < localStorage.length; i++) {
             var currentClient = JSON.parse(localStorage.getItem(i))
@@ -18,13 +19,12 @@ $(document).ready(function() {
                 "\nComms: " + currentClient.comms + "\nShelter: " + currentClient.shelter + "\n--------\n"
         }
 
-        console.log(body)
-
         $(location).attr('href', 'mailto:?subject='
                 + encodeURIComponent("PRCC Clients")
                 + "&body="
                 + encodeURIComponent(body)
         );
+        //end send email code
 
         e.preventDefault();
         var nextPage = $(e.target.hash);
