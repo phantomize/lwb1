@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="LWB App" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
-    	<title>PRCC LWB Client Tracker</title>
+    <title>PRCC LWB Client Tracker</title>
     <link href="appLayout.css" rel="stylesheet" type="text/css" />
     <script type="application/javascript" src="jquery-2.1.1.min.js"></script>
     <script type="application/javascript" src="iscroll-lite.js"></script>
@@ -12,81 +12,97 @@
 
 <body>
 <header>
-<h1>
-    PRCC Client Tracker
-</h1>
+    <h1>
+        PRCC Client Tracker
+    </h1>
 
 </header>
 
 <div id="wrapper">
-	<div id="main-content">
-    	<div id="pages">
-    		<div id="register" class="current">
-				 <form id="clientForm" name="clientForm" action="" method="get">
-    First name: <input id="firstName" type="text" name="firstName" value="" /> <br />
-    Last name: <input id="lastName" type="text" name="lastName" value="" /><br />
-    Resources: <br />
-    <input id="shelter" type="checkbox" name="shelter"/> Shelter
-    <input id="comms" type="checkbox" name="comms" /> Communication
-    <br /><br />
-    <input type="submit" name="submitMe" value="Submit"/>
-</form>
+    <div id="main-content">
+        <div id="pages">
+            <div id="register" class="current">
+                <form id="clientForm" name="clientForm">
+                    First name: <input id="firstName" type="text" name="firstName" value="" /> <br />
+                    Last name: <input id="lastName" type="text" name="lastName" value="" /><br />
+                    Resources: <br />
+                    <input id="shelter" type="checkbox" name="shelter"/> Shelter
+                    <input id="comms" type="checkbox" name="comms" /> Communication
+                    <br /><br />
+                    <input type="submit" name="submitMe" value="Submit"/>
+                </form>
 
-                	
- 			</div>
-   			<div id="map">
-            	<a href="lwbApp.html" id="fetchLocs" class="viewLink"> View Clients </a>
+
             </div>
-    		<div id="send">
-            Send Stuff
-			</div>
-            
-		</div>
-        
-	</div>
+            <div id="map">
+                <a href="lwbApp.html" id="fetchLocs" class="viewLink"> View Clients </a>
+            </div>
+            <div id="send">
+                Send Stuff
+            </div>
+
+        </div>
+
+    </div>
 </div>
 
+<script type="application/javascript">
 
+
+
+    $('#clientForm').submit(function() {
+        var currentClient = JSON.stringify({
+            "firstName" : $('#firstName').val(),
+            "lastName" : $('#lastName').val(),
+            "shelter" : $('#shelter').is(':checked'),
+            "comms" : $('#comms').is(':checked'),
+            "lat" : -34.28566,
+            "long" : 140.59689,
+            "date" : new Date()
+        })
+        localStorage.setItem(localStorage.length, currentClient)
+    })
+
+</script>
 <script type="application/javascript">
     console.log("No. clients: " + localStorage.length)
     for (var i = 0; i < localStorage.length; i++) {
-        $.each(JSON.parse(localStorage.getItem(i)), function(k, v) {
-            console.log(v)
-        })
+        //$.each(JSON.parse(localStorage.getItem(i)), function(k, v) {
+            console.log(JSON.parse(localStorage.getItem(i)))
     }
 
-    localStorage.clear()
+    //localStorage.clear()
 
 </script>
-	</div>
+</div>
 </div>
 
 <footer>
-<ul id="tab-bar">
-    <li>
-        <a href="#register">Register Client</a>
-    </li>
- 
-    <li>
-        <a href="#map">Map</a>
-    </li>
- 
-    <li>
-        <a href="#send">Send</a>
-    </li>
-</ul>
+    <ul id="tab-bar">
+        <li>
+            <a href="#register">Register Client</a>
+        </li>
+
+        <li>
+            <a href="#map">Map</a>
+        </li>
+
+        <li>
+            <a href="#send">Send</a>
+        </li>
+    </ul>
 </footer>
 
 
 
 </body>
 <script language="javascript">
-/* Button backup <button class="mainFunction" id="newForm" Register Client</button>
-				<script type="text/javascript">
-  				document.getElementById("newForm").onclick = function() {
-       			window.open("annotate.html","","height=300, width=280","false")
-    			}
-				</script>
-				*/
+    /* Button backup <button class="mainFunction" id="newForm" Register Client</button>
+     <script type="text/javascript">
+     document.getElementById("newForm").onclick = function() {
+     window.open("annotate.html","","height=300, width=280","false")
+     }
+</script>
+*/
 </script>
 </html>
