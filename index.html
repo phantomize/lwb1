@@ -55,15 +55,14 @@
 
 
     $('#clientForm').submit(function() {
-
         var currentClient = JSON.stringify({
             "firstName" : $('#firstName').val(),
             "lastName" : $('#lastName').val(),
             "shelter" : $('#shelter').is(':checked'),
             "comms" : $('#comms').is(':checked'),
-            "lat" : gps.latitude,
-            "long" : gps.longitude,
-            "date" : gps.timestamp
+            "lat" : -34.28566,
+            "long" : 140.59689,
+            "date" : new Date()
         })
         localStorage.setItem(localStorage.length, currentClient)
     })
