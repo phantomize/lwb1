@@ -8,6 +8,8 @@
     <script type="application/javascript" src="jquery-2.1.1.min.js"></script>
     <script type="application/javascript" src="iscroll-lite.js"></script>
     <script type="application/javascript" src="appJS.js"></script>
+    <script type="application/javascript" src="cordova.js"></script>
+    <script type="application/javascript" src="gpsHandler.js"></script>
 </head>
 
 <body>
@@ -31,6 +33,7 @@
                     <br /><br />
                     <input type="submit" name="submitMe" value="Submit"/>
                 </form>
+                <p id="geolocation">Finding geolocation...</p>
 
 
             </div>
@@ -38,10 +41,7 @@
                 <a href="lwbApp.html" id="fetchLocs" class="viewLink"> View Clients </a>
             </div>
             <div id="send">
-                <script type="application/javascript">
-
-
-                </script>
+                Client list sent
             </div>
 
         </div>
@@ -91,7 +91,7 @@
         </li>
 
         <li>
-            <a href="#send">Send</a>
+            <a href="#send" id="sendForm" onclick="formEmail()">Send</a>
         </li>
     </ul>
 </footer>

@@ -9,24 +9,7 @@ $(document).ready(function() {
 
     $('#tab-bar').find('a').on('click', function(e){
         console.log("some one clicked me");
-
-        //send email code, fuck knows where this goes
-        var body = ""
-        for (var i = 0; i < localStorage.length; i++) {
-            var currentClient = JSON.parse(localStorage.getItem(i))
-            body += "Client " + i+1 + ":\nName: " + currentClient.firstName + " " + currentClient.lastName +
-                "\nDate: " + currentClient.date + "\nLocation: " + currentClient.lat + ", " + currentClient.long +
-                "\nComms: " + currentClient.comms + "\nShelter: " + currentClient.shelter + "\n--------\n"
-        }
-
-        $(location).attr('href', 'mailto:?subject='
-                + encodeURIComponent("PRCC Clients")
-                + "&body="
-                + encodeURIComponent(body)
-        );
-        //end send email code
-
-        e.preventDefault();
+		e.preventDefault();
         var nextPage = $(e.target.hash);
         page(nextPage); //You need to add this for it to work
         $("#pages").find(".current").removeClass("current");
@@ -63,3 +46,22 @@ $('#clientForm').submit(function() {
 })
 
 // end original annotate.html JS
+
+function formEmail(){
+	
+  //send email code, fuck knows where this goes
+        var body = ""
+        for (var i = 0; i < localStorage.length; i++) {
+            var currentClient = JSON.parse(localStorage.getItem(i))
+            body += "Client " + i+1 + ":\nName: " + currentClient.firstName + " " + currentClient.lastName +
+                "\nDate: " + currentClient.date + "\nLocation: " + currentClient.lat + ", " + currentClient.long +
+                "\nComms: " + currentClient.comms + "\nShelter: " + currentClient.shelter + "\n--------\n"
+        }
+
+        $(location).attr('href', 'mailto:?subject='
+                + encodeURIComponent("PRCC Clients")
+                + "&body="
+                + encodeURIComponent(body)
+        );
+        //end send email code
+}
