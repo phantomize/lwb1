@@ -56,6 +56,7 @@
 
     $('#clientForm').submit(function() {
         var gps = document.addEventListener("deviceready", gpsHandler.onDeviceReady, false);
+        alert(gps.longitude + ", " + gps.latitude)
 
         var currentClient = JSON.stringify({
             "firstName" : $('#firstName').val(),
