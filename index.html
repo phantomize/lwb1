@@ -53,7 +53,7 @@
 <script type="application/javascript">
 
     var lat = 0, long = 0, time = 0
-    document.addEventListener("deviceready", onDeviceReady, false);
+    //document.addEventListener("deviceready", onDeviceReady, false);
     onDeviceReady()
 
     $('#clientForm').submit(function() {
@@ -95,7 +95,6 @@
         long = position.coords.longitude
         time = position.timestamp
 
-        alert(lat + ", " + long + ", " + time)
 
         //return vars
     };
