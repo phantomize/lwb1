@@ -2,7 +2,7 @@
 
 // Wait for Cordova to load
     //
-
+    document.addEventListener("deviceready", gpsHandler.onDeviceReady, false);
 
     // Cordova is ready
     //
@@ -18,7 +18,7 @@
 //   the current GPS coordinates
 //
 var onSuccess = function(position) {
-         return ('Latitude: '          + position.coords.latitude          + '\n' +
+         alert ('Latitude: '          + position.coords.latitude          + '\n' +
           'Longitude: '         + position.coords.longitude         + '\n' +
           'Altitude: '          + position.coords.altitude          + '\n' +
           'Accuracy: '          + position.coords.accuracy          + '\n' +
